@@ -1,0 +1,35 @@
+Ameer Muhtaseb
+cs30xdw
+
+Description: The purpose of this (and last!) programming assignment primarily focuses on C 
+systems-level programming with even more Standard C Library routines. You 
+will build a limited version of the sdiff utility that we can call 
+mysdiff that will implement a small subset of sdiff options 
+(-d,-i,-l,-s,-w). You can supply mysdiff with any combination of two files
+to compare.The purpose of this (and last!) programming assignment primarily
+focuses on C systems-level programming along with even more Standard C 
+Library routines. You will build a limited version of the sdiff utility that 
+we can call mysdiff that will implement a small subset of sdiff options 
+(-d,-i,-l,-s,-w). You can supply mysdiff with any combination of two files 
+to compare.
+
+How to compile: make
+
+How to run: ./mysdiff test1 test2
+
+Normal Output: 
+[cs3xyz@ieng9]:pa4$ ./mysdiff -w 60 testa testb
+aaa                          -
+bbb                             bbb
+ccc                             ccc
+ddd                          |  sss
+			     +  eee
+
+Abnormal Output:
+cs3xyz@ieng9]:pa4$ ./mysdiff -W
+./mysdiff: missing operand after '-W'
+./mysdiff: Try './mysdiff --help' for more information.
+
+Test: I tested the file by using testing different file contents with
+each of the flags and comparing the outputs of my program to the outputs
+of the public file.
