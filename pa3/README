@@ -1,0 +1,26 @@
+Name/Login: Ameer Muhtaseb, cs30xdw
+
+Description: This program finds various anagrams of a word from stdin. The
+	user gives a word and the program checks if that word has any anagrams.
+	If it does, it prints them to the user. If it does not then the user
+	is told that there were no anagrams found.
+
+How to Compile: make
+
+How to run: ./anagrams words
+
+Normal Output: ./anagrams words
+
+Enter a word to search for anagrams [^D to exit]: stop
+
+Anagram(s) are: opts, OSTP, Post, post, POTS, pots, SPOT, spot, TOPS, tops
+
+Enter a word to search for anagrams [^D to exit]:
+
+Abnormal Output: ./anagrams words1
+
+Error opening dictionary file: No such file or directory
+
+Testing: I tested by using multiple strings and seeing if the anagrams that
+	 were output were the same as the ones given by the public test file
+

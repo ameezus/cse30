@@ -1,0 +1,77 @@
+/*
+ * Filename: README
+ * Author: Ameer Muhtaseb
+ * Userid: cs30xdw
+ * Date: April 21, 2014
+ * Sources of help: None
+ */
+
+Description: This program prints out an X patter with a border based on the
+	     inputs given from the user when running the program
+
+Compiling: Typing make in the PA1 dir
+
+Running: ./pa1 X_size, X_char, filler_char, border_char
+
+Normal Output: ./pa1 8 33 34 35
+##########
+#!""""""!#
+#"!""""!"#
+#""!""!""#
+#"""!!"""#
+#"""!!"""#
+#""!""!""#
+#"!""""!"#
+#!""""""!#
+##########
+
+Abnormal Output: /pa1 12 45a gh52 67.1
+"45a" is not an integer
+"gh52" is not an integer
+"67.1" is not an integer
+
+Testing: I tested this program by repeatedly coming up with cases to test and
+	 then comparing the outcome to the pa1test outcome with those same test
+	 cases
+
+Questions:
+1.
+(gdb) p/x $i0
+$1 = 0xffbff1f6
+(gdb) x/s 0xffbff1f6
+0xffbff1f6:     "9InchNails"
+
+2.
+(gdb) p/s (int) $i2
+$3 = 10
+
+3.
+(gdb) p/x $i1
+$6 = 0xffbfef90
+
+4.
+(gdb) print size
+$7 = 9
+(gdb) p/s $o0
+$8 = 9
+
+5.
+(gdb) print pEnd[0]
+$10 = 73 'I'
+
+6.
+(gdb) print pEnd
+$9 = 0xffbff197:     "InchNails"
+
+7.
+(gdb) print errno
+$11 = 0
+
+8.
+git status
+
+9.
+git reset HEAD <file>
+
+10.
+git diff

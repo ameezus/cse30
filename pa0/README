@@ -1,0 +1,190 @@
+/*
+ * Filename: README
+ * Author: Ameer Muhtaseb
+ * Userid: cs30xdw
+ * Date: 04/05/2015
+ */
+
+Description
+-----------
+    This simple program takes a single integer as input and prints a short
+message to the terminal, including a welcome, the date that the assignment is
+due and the square of the integer that was given on the command line.
+
+How to compile
+--------------
+    To compile this program, simply navigate to the directory containing the
+source files for PA0 (which should include the Makefile) and type 'make'.
+
+How to run
+----------
+    To run the program, type the executable name followed by an integer
+argument.  For example:
+
+        ./a.out 5
+
+Normal output
+-------------
+    Normal output is printed to stdout.  An example of normal output would be
+the following:
+
+[cs30xdw@ieng9]:pa0$ ./a.out 5
+Welcome to CSE 30, Spring 2014
+PA0 is due on April 7, 2015
+The square of 5 is 25
+
+Abnormal output
+---------------
+    Abnormal output is printed to stderr.  This can occur if an integer is not
+specified:
+
+[cs30xdw@ieng9]:pa0$ ./a.out
+./a.out: missing integer arg
+Usage: ./a.out [INTEGER]
+  Integer value to square
+
+This can also occur if there are too many arguments:
+
+[cs30xdw@ieng9]:pa0$ ./a.out 5 10
+./a.out: too many arguments
+Usage: ./a.out [INTEGER]
+  Integer value to square
+
+Testing
+-------
+
+This program was tested using the sample pa0test executable that was provided.
+Both programs were run with the same input and their outputs were redirected to
+two different files (this program to MYSOL and pa0test to REFSOL).  These
+outputs were then compared using the command line tool 'diff'.  When there were
+no differences in output, it indicated that my program was functioning properly.
+
+Furthermore, the squareNum() function was unit tested to ensure that it returns
+the proper value (the square of the input value).  Test inputs included positive
+numbers, negative numbers, and 0.
+
+Questions
+---------
+
+1) List the 4 compilation errors and 1 compilation warning you found in the 
+   source files. Please include the name of the file that consists the error,
+   the line number, and your fix for the error.
+
+   Error 1:
+   	File: main.c
+	Line: 20
+	Problem: #include <stdio.h> was missing so fprintf couldnt be used
+	Solution: I added #include <stdio.h>
+
+   Error 2:
+   	File: main.c
+	Line: 87
+	Problem: The prototype needed a direct address but an object was passed
+	Solution: Put an & before dueDate such that the line reads:
+		printDueDate( &dueDate );
+   
+   Error 3:
+   	File: printDueDate.c
+	Line: 14
+	Problem: #include "pa0.h" was missing so pa0.h couldnt be used
+	Solution: I added #include "pa0.h"
+
+   Error 4:
+   	File: pa0.h
+	Line: 17,18,19
+	Problem: all 3 lines were missing semi colons
+	Solution: added semi colons
+
+   Warning 1:
+   	File: main.c
+	Line: 92
+	Problem: The second parameter of the printf statement was incorrectly
+		 called. argv[1] needed to be replaced by argVal
+	Solution: argv[1] was replaced by argVal
+
+
+2) Why is the program not printing the correct output when you
+   first run it after successful compilation? How did 
+   you fix it?
+
+   In our code we were decrementing argVal instead of argc in the main.c file.
+   Once I fixed this, the program printed out the correct output.
+
+3) What line of C code do you see printed to the screen?
+
+	43  int argVal = 0;  /* Value to square from command line */
+
+4) What happens if you type nexti at this point? Why?
+
+	49        --argc;
+	1: x/i $pc
+	=> 0x10c98 <main+16>:   ld  [ %fp + 0x44 ], %g1
+
+	This is displayed because this is the next line of code executed
+
+5) Type x/s $i0. What does this do? What do you see printed to the screen?
+	
+	This shows what is savedin the register. "Spring 2015"
+
+6) What is a breakpoint? How do you set one? (You did earlier.)
+	
+	A breakpoint is when you are able to stop the execution of a program when
+	the value in a memory location is modified. You set one by typing break 
+	and then wherever you want to place it (break main)
+
+7) What function are you debugging if gdb displays the following?: 
+
+      <foobar+32>:    sethi %hi(0x20400), %o6
+      
+      Answer: sethi inside of foobar
+
+8) What is the difference between step and next? What is the difference 
+   between step/next and stepi/nexti?
+	
+	next  executes the entire set or routine, while step moves you to
+	the next executable line but does not execute it
+	
+	nexti will execution until there is a return, stepi command will go into
+	the function but does not execute it
+
+9) What are $o0, $i0, etc, referring to?
+
+	They refer to registers
+
+10) What is the difference between the x and p commands?
+	
+	x examines the line with information regarding types, how they are declared
+	p commands simply print out the line
+    
+    Which should you use to look at the contents of a register?
+    
+    	p
+     
+    Which should you use to look at something in memory?
+    
+    	x
+
+    What do x/s and p/d mean (what do the /s and /d specify)?
+    	
+	examine as a string
+    	print as an int
+    	They specify the format
+
+11) How do you remove a file from git tracking?
+
+	git rm <filename>
+		
+12) How do you view the list of commits you've made?
+
+	git log
+
+13) How do you force Git to ignore a file or all of the files with a specific 
+    extension?
+
+	You can create a file in the dir called gitignore, and list the files
+	there.
+
+14) What is the name of the directory that contains the Git metadata for your 
+repository?
+	
+	Git directory
